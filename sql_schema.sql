@@ -20,4 +20,6 @@ FROM
 'C:\Users\Jaime\Desktop\git-repo\illinois_residential_meth_labs\csv\illinois_residential_meth_labs_2001-2021.csv'
 DELIMITER ',' CSV HEADER;
 
+SELECT * FROM residential
+
 
