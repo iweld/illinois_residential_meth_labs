@@ -179,6 +179,20 @@ FROM
 earliest_date|latest_date|
 -------------+-----------+
    2001-01-11| 2021-10-01|
+   
+-- What are the different county names and their population?
+   
+SELECT
+	DISTINCT rc.incident_county,
+	cd.population_2010,
+	cd. population_2022
+FROM 
+	residential_cleaned AS rc
+JOIN 
+	illinois_county_data AS cd
+ON 
+	rc.incident_county = cd.county_name;
+	
 	
 
 
