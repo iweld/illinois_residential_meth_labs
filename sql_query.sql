@@ -153,6 +153,33 @@ incident_id|incident_date|incident_address  |incident_city|incident_zip|incident
           9|   2001-07-05|east 13th road    |harvel       |62538       |montgomery     |
          10|   2001-07-14|north road        |irving       |62051       |montgomery     |
          
+-- What is the total number of unique row entries?
+         
+SELECT 
+	count(*)
+FROM 
+	residential_cleaned;
+
+-- Results:
+
+count|
+-----+
+ 3206|
+ 
+ -- What is the earliest and latest incident date?
+ 
+SELECT
+	min(incident_date) AS earliest_date,
+ 	max(incident_date) AS latest_date
+FROM
+	residential_cleaned;
+
+-- Results:
+
+earliest_date|latest_date|
+-------------+-----------+
+   2001-01-11| 2021-10-01|
+	
 
 
       
