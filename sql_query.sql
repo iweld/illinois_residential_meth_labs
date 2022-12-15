@@ -180,20 +180,37 @@ earliest_date|latest_date|
 -------------+-----------+
    2001-01-11| 2021-10-01|
    
--- What are the different county names and their population?
+-- What are the different county names that have had Meth Lab incidents and their population?
    
 SELECT
 	DISTINCT rc.incident_county,
 	cd.population_2010,
-	cd. population_2022
+	cd. population_2022,
+	round(population_growth, 2) avg_population_growth
 FROM 
 	residential_cleaned AS rc
 JOIN 
 	illinois_county_data AS cd
 ON 
-	rc.incident_county = cd.county_name;
+	rc.incident_county = cd.county_name
+ORDER BY 
+	incident_county
+LIMIT 10;
 	
-	
+-- Results:
+
+incident_county|population_2010|population_2022|avg_population_growth|
+---------------+---------------+---------------+---------------------+
+adams          |          67103|          65463|                -0.02|
+alexander      |           8238|           4640|                -0.44|
+bond           |          17768|          16517|                -0.07|
+boone          |          54165|          53304|                -0.02|
+brown          |           6937|           6106|                -0.12|
+bureau         |          34978|          32898|                -0.06|
+calhoun        |           5089|           4307|                -0.15|
+carroll        |          15387|          15766|                 0.02|
+cass           |          13642|          12922|                -0.05|
+champaign      |         201081|         206821|                 0.03|
 
 
       
