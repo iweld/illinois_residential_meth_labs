@@ -213,6 +213,35 @@ cass           |          13642|          12922|                -0.05|
 champaign      |         201081|         206821|                 0.03|
 
 
+-- What are the counties with the top 10 total number of incidents per county?
+
+SELECT
+	DISTINCT incident_county,
+	count(*) AS incident_count
+FROM 
+	residential_cleaned 
+GROUP BY
+	incident_county
+ORDER BY 
+	incident_count DESC
+LIMIT 10;
+
+-- Results:
+
+incident_county|incident_count|
+---------------+--------------+
+madison        |           370|
+adams          |           290|
+vermilion      |           210|
+tazewell       |           145|
+knox           |           143|
+st. clair      |           126|
+macoupin       |            95|
+coles          |            93|
+christian      |            88|
+morgan         |            87|
+
+
       
 
 
