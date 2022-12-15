@@ -242,7 +242,19 @@ christian      |            88|
 morgan         |            87|
 
 
-      
+-- What are the counties with the top 10 total number of incidents per county?
+
+SELECT
+	DISTINCT incident_county,
+	EXTRACT(YEAR FROM incident_date)::numeric AS incident_year,
+	count(*) AS incident_count
+FROM 
+	residential_cleaned 
+GROUP BY
+	incident_county,
+	incident_year
+ORDER BY 
+	incident_county, incident_year DESC;  
 
 
 
